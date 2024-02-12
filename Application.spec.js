@@ -4,10 +4,6 @@ test('VintedApplication', async ({ page }) => {
    // Open Vinted Academy Application
    await page.goto('https://boards.eu.greenhouse.io/embed/job_app?for=vinteden&t=2aee7c72teu&token=4286416101&b=https%3A%2F%2Fcareers.vinted.com%2Fjobs%2Fj%2F4286416101');
 
-
-
-   await page.pause()
-
    //  Fill up First Name
    await page.getByLabel('First Name *').click();
    await page.getByLabel('First Name *').fill('Artūras');
@@ -26,7 +22,6 @@ test('VintedApplication', async ({ page }) => {
    await page.waitForSelector('#resume_fieldset > div');
    const input = await page.$('input[type="file"]');
    await input.setInputFiles(CV);
-
 
    // Enter LinkedIn profile
    await page.getByLabel('LinkedIn Profile').click();
@@ -72,7 +67,6 @@ test('VintedApplication', async ({ page }) => {
 
    // No disabilities gladly
    await page.getByText('No', { exact: true }).nth(1).click();
-
 
    // Not ill, just ADHD
    await page.getByText('No', { exact: true }).nth(2).click();
